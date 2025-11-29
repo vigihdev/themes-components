@@ -12,10 +12,8 @@
     ],
     "author": "vigihdev",
     "license": "MIT",
-    "bin": {
-        "themes-styles": "./src/scripts/themes-styles.js"
-    },
     "scripts": {
+        "install": "src/scripts/install.js",
         "dev": "nodemon dev.js"
     },
     "dependencies": {
