@@ -72,21 +72,10 @@ module.exports.ThemesComponentsGrunt = function (grunt) {
         grunt.task.run(['concat', 'concat_css'])
     });
 
-    grunt.task.registerTask(`${COMMAND}:fresh`, 'Clean + Build fresh', function () {
-        const done = this.async();
-
-        grunt.task.run(`${COMMAND}:clean`);
-
-        setTimeout(() => {
-            grunt.task.run(`${COMMAND}:dist`);
-
-            setTimeout(() => {
-                grunt.task.run(`${COMMAND}:build`);
-                done();
-            }, 2000);
-
-        }, 1000);
-    });
+    grunt.task.registerTask(`${COMMAND}:fresh`, 'Clean + Build fresh', [
+        `${COMMAND}:clean`,
+        `${COMMAND}:dist`,
+    ]);
 
     grunt.task.registerTask(`${COMMAND}`, 'Default Bootstrap task', function () {
         grunt.task.run(`${COMMAND}:build`);
