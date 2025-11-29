@@ -1,4 +1,6 @@
 @use "sass:math";
-@import "../../../../themes-styles/assets/assets.scss";
+
+@import "../../../asset--import/index";
+
 @import "google-maps";
 @import "info-window";

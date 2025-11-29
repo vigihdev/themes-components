@@ -1,5 +1,7 @@
 @use "sass:math";
-@import "../../../../themes-styles/assets/assets.scss";
+
+@import "../../../asset--import/index";
+
 @import "variables";
 @import "mixins";
 @import "bootstrap";
