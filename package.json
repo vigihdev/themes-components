@@ -1,0 +1,24 @@
+{
+    "name": "@vigihdev/themes-components",
+    "version": "0.1.0-dev",
+    "description": "Themes styles Bootstrap 4 bundle with essential components, themes, and build tools. Perfect for rapid prototyping and production-ready projects.",
+    "main": "index.js",
+    "homepage": "https://github.com/vigihdev/themes-components",
+    "keywords": [
+        "bootstrap4",
+        "component-bundle",
+        "themes",
+        "vigihdev"
+    ],
+    "author": "vigihdev",
+    "license": "MIT",
+    "bin": {
+        "themes-styles": "./src/scripts/themes-styles.js"
+    },
+    "scripts": {
+        "dev": "nodemon dev.js"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3"
+    }
+}

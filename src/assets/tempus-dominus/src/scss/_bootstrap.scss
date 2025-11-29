@@ -1,0 +1,164 @@
+@use "sass:math";
+
+.container-date-time-picker {
+    position: absolute;
+    z-index: 1000;
+}
+.backdrop-date-time-picker {
+    @include backdrop;
+    opacity: 0.6;
+}
+
+.tempus-dominus-widget.bootstrap {
+    width: 350px;
+    filter: drop-shadow-elevation(8);
+    @include border-radius(8px);
+    border: 0;
+    padding-top: 0;
+
+    @include td-calendar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
+        padding: 12px;
+        margin-left: -6px;
+        margin-right: -6px;
+        margin-bottom: 20px;
+        @include BoxShadow(1);
+        @include border-radius(8px);
+        [data-action] {
+            @include centerFlex;
+        }
+        .material-icons,
+        .material-icons-outlined {
+            font-size: 32px;
+            color: #000000;
+        }
+        .picker-switch {
+            color: #000000;
+            @include poppins-black;
+        }
+    }
+
+    @include td-calendar-days {
+        grid-auto-rows: 48px;
+        .dow {
+        }
+        .dow:first-child {
+        }
+        .dow.no-highlight {
+            @include poppins-bold;
+            color: #000000;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #c2c2c2;
+            &:first-child {
+                color: $td-day-weekend-color;
+            }
+        }
+
+        .day.weekend:not(.active) {
+            color: $td-day-weekend-color;
+        }
+        .day {
+            @include size(40px);
+            font-family: $font-family-roboto-medium;
+            color: #000000;
+            font-size: 1em;
+            &.active.disabled {
+            }
+            &.disabled.weekend {
+            }
+            &.old.weekend:not(.disabled),
+            &.new.weekend,
+            &.weekend {
+            }
+        }
+        .day.active {
+            background-color: #cc0000;
+            @include BoxShadow(4);
+        }
+    }
+
+    [tabindex="-1"] {
+        @include user-select-none;
+        @include plain-hover-focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+
+    @include td-time-container-clock {
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        @include user-select-none;
+
+        [data-action="incrementMinutes"],
+        [data-action="incrementHours"],
+        [data-action="decrementHours"],
+        [data-action="decrementMinutes"] {
+            .material-icons,
+            .material-icons-outlined {
+                font-size: 32px;
+                font-weight: $font-weight-bold;
+            }
+            @include hover-focus {
+                background: #cc0000;
+                color: #ffffff;
+                @include BoxShadow(4);
+            }
+        }
+        [data-action="showHours"],
+        [data-action="showMinutes"] {
+            @include poppins-black;
+        }
+        [data-action="showHours"],
+        [data-action="decrementHours"],
+        [data-action="showMinutes"] {
+            font-size: 1.3em;
+            color: $black;
+            font-weight: $font-weight-bold;
+            @include size(40px);
+
+            &:hover {
+                background: #cc0000;
+                color: #ffffff;
+                @include BoxShadow(4);
+            }
+        }
+    }
+
+    .toolbar {
+        .btn-action-date-time-picker {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            padding-right: 16px;
+            @include hover {
+                background: none;
+            }
+            .btn-close {
+                @include poppins-bold;
+            }
+        }
+    }
+}
+
+.date-time-picker-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1071;
+    background-color: #000;
+    &.fade {
+        opacity: 0;
+        @include transition(opacity 0.15s linear);
+    }
+    &.show {
+        opacity: 0.5;
+    }
+}

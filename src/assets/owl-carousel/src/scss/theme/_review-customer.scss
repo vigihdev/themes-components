@@ -1,0 +1,57 @@
+.review-customer-owl-carousel {
+    position: relative;
+    display: flex;
+    .owl-stage-outer {
+        margin-bottom: 0;
+    }
+    .owl-nav-review-customer {
+        .owl-prev,
+        .owl-next {
+            position: absolute;
+            outline: none;
+            background: transparent;
+            border: 0;
+            margin: 0 auto;
+            background: #ffffff;
+            top: calc(50% - 8px);
+            @include transform-translateY(calc(-50% - 8px));
+            @include size(55px);
+            @include border-radius(50%);
+            @include BoxShadow(4);
+            @include centerFlex;
+            @include transition(all 0.7s);
+            @include hover {
+                background: #ffa633;
+            }
+        }
+        .owl-prev {
+            left: 0;
+        }
+        .owl-next {
+            right: 0;
+        }
+    }
+
+    .owl-dots-review-customer {
+        @include absoluteCenterX;
+        bottom: 0;
+        .owl-dot {
+            span {
+                @include size(13px);
+                @include border-radius(50%);
+                @include BoxShadow(4);
+                margin: 4px;
+                background: #ffa633;
+                display: block;
+                @include transition(background 1000ms linear);
+            }
+
+            &.active {
+                span {
+                    background: #cc0000;
+                    border: 2px solid #ffa633;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+$td-timepicker-font-size: 1.2em !default;
+$td-active-bg: $secondary !default;
+$td-active-color: #fff !default;
+$td-border-radius: 999px !default;
+$td-btn-hover-bg: $primary !default;
+$td-disabled-color: #ccc !default;
+$td-alternate-color: rgba(0, 0, 0, 0.38) !default;
+$td-secondary-border-color: #ccc !default;
+$td-secondary-border-color-rgba: rgba(0, 0, 0, 0.2) !default;
+$td-primary-border-color: white !default;
+$td-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
+
+$td-day-height: 40px !default;
+$td-font-size: 1em !default;
+$td-color: $black !default;
+$td-day-color: rgb($dark, 75%) !default;
+$td-day-active-color: rgb($black, 75%) !default;
+$td-day-old-color: rgb($td-day-color, 50%) !default;
+$td-day-disabled-color: rgb($td-day-color, 20%) !default;
+
+$td-day-weekend-color: #ff3d00 !default;

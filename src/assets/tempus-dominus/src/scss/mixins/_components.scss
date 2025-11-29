@@ -1,0 +1,17 @@
+@mixin td-calendar-header() {
+    .date-container .calendar-header {
+        @content;
+    }
+}
+
+@mixin td-calendar-days() {
+    .date-container .date-container-days {
+        @content;
+    }
+}
+
+@mixin td-time-container-clock() {
+    .time-container .time-container-clock {
+        @content;
+    }
+}

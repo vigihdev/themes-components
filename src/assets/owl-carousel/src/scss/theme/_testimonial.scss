@@ -1,0 +1,57 @@
+.owl-theme-testimoni {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .owl-stage-outer {
+        margin-bottom: 0;
+    }
+    .owl-nav-testimoni {
+        .owl-prev,
+        .owl-next {
+            position: absolute;
+            outline: none;
+            background: transparent;
+            border: 0;
+            margin: 0 auto;
+            background: #ffffff;
+            top: calc(50% - 8px);
+            @include transform-translateY(calc(-50% - 8px));
+            @include size(55px);
+            @include border-radius(50%);
+            @include BoxShadow(4);
+            @include centerFlex;
+            @include transition(all 0.7s);
+            @include hover {
+                background: #ffa633;
+            }
+        }
+        .owl-prev {
+            left: 0;
+        }
+        .owl-next {
+            right: 0;
+        }
+    }
+
+    .owl-dots-testimoni {
+        @include centerFlex;
+        .owl-dot {
+            span {
+                @include size(13px);
+                @include border-radius(50%);
+                @include BoxShadow(4);
+                margin: 4px;
+                background: #ffa633;
+                display: block;
+                @include transition(background 1000ms linear);
+            }
+
+            &.active {
+                span {
+                    background: #cc0000;
+                    border: 2px solid #ffa633;
+                }
+            }
+        }
+    }
+}

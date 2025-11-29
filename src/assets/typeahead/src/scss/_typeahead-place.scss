@@ -1,0 +1,109 @@
+@use "sass:math";
+
+$input-height: 48px !default;
+$width-addons: 40px !default;
+$input-background-color: $white;
+$notice-background-color: #ffeecc;
+$notice-border-color: #ffc316;
+$notice-color: #926200;
+
+.twitter-typeahead.twitter-typeahead-place {
+    width: 100%;
+    .tt-hint {
+        color: #dedede;
+    }
+    .tt-input {
+    }
+    pre[aria-hidden="true"] {
+        width: 100%;
+    }
+
+    .twitter-typeahead-clear {
+        position: absolute;
+        font-weight: bold;
+        z-index: 2000;
+        right: 18px;
+        top: 50%;
+        @include transform-translateY(-50%);
+    }
+    .tt-menu {
+        background: #ffffff;
+        width: 200%;
+        left: -32px !important;
+        position: absolute;
+        z-index: 2000 !important;
+        @include border-bottom-radius(8px);
+        @include elevation(4);
+        @include media-screen-min-max(xs, sm) {
+            width: 135%;
+            left: -60px !important;
+        }
+        @include media-screen-min-max(sm, md) {
+            width: 100%;
+        }
+        .tt-dataset.tt-dataset-place-address {
+            .tt-suggestion {
+                @include center0Flex();
+                padding: 8px 8px;
+                border-bottom: 1px solid #d5d5d5;
+                .item-prepend,
+                .item-append {
+                    @include center0Flex();
+                    .material-icons-outlined {
+                        font-size: 18px;
+                    }
+                }
+                .item-append {
+                    margin-right: math.div($getter, 2);
+                }
+                .item-body {
+                    flex: auto;
+                    .item-body-title {
+                        font-size: 0.9em;
+                        font-weight: 700;
+                        color: $black;
+                    }
+                    .item-body-desc {
+                        font-size: 0.8em;
+                        color: tint-color($black, 20%);
+                    }
+                }
+
+                &.tt-selectable {
+                    &.tt-cursor {
+                        background: #dedede;
+                    }
+                }
+            }
+
+            .item-footer {
+                background-color: $notice-background-color;
+                @include border-bottom-radius(8px);
+                .item-footer-text {
+                    padding: 8px;
+                    font-size: 0.8em;
+                    color: $notice-color;
+                }
+            }
+        }
+    }
+}
+
+// backdrop
+.typeahead-place-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1071;
+    background-color: #000;
+    &.fade {
+        opacity: 0;
+        @include transition(opacity 0.15s linear);
+    }
+    &.show {
+        opacity: 0.5;
+    }
+}

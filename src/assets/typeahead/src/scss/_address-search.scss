@@ -1,0 +1,90 @@
+@use "sass:math";
+
+$input-height: 48px !default;
+$width-addons: 40px !default;
+$input-background-color: $white;
+$notice-background-color: #ffeecc;
+$notice-border-color: #ffc316;
+$notice-color: #926200;
+
+.twitter-typeahead.twitter-typeahead-address-search {
+    width: 100%;
+    .tt-hint {
+        color: #dedede;
+    }
+    .tt-input {
+    }
+    pre[aria-hidden="true"] {
+        width: 100%;
+    }
+    .tt-menu {
+        background: #ffffff;
+        width: 100%;
+        @include border-bottom-radius(8px);
+        filter: drop-shadow-elevation(8);
+        .tt-dataset.tt-dataset-address-search {
+            .tt-suggestion {
+                @include center0Flex();
+                padding: 8px 8px;
+                border-bottom: 1px solid #d5d5d5;
+                .item-prepend,
+                .item-append {
+                    @include center0Flex();
+                    .material-icons-outlined {
+                        font-size: 18px;
+                    }
+                }
+                .item-append {
+                    margin-right: math.div($getter, 2);
+                }
+                .item-body {
+                    flex: auto;
+                    .item-body-title {
+                        font-size: 0.9em;
+                        font-weight: 700;
+                        color: $black;
+                    }
+                    .item-body-desc {
+                        font-size: 0.8em;
+                        color: tint-color($black, 20%);
+                    }
+                }
+
+                &.tt-selectable {
+                    &.tt-cursor {
+                        background: #dedede;
+                    }
+                }
+            }
+
+            .item-footer {
+                background-color: $notice-background-color;
+                @include border-bottom-radius(8px);
+                .item-footer-text {
+                    padding: 8px;
+                    font-size: 0.8em;
+                    color: $notice-color;
+                }
+            }
+        }
+    }
+}
+
+// backdrop
+.address-search-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1071;
+    background-color: #000;
+    &.fade {
+        opacity: 0;
+        @include transition(opacity 0.15s linear);
+    }
+    &.show {
+        opacity: 0.5;
+    }
+}
